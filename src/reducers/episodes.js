@@ -1,47 +1,46 @@
 import {
-    searchRequest,
-    searchSuccess,
-    searchFailure
-} from '../actions/searchActions';
+    episodesRequest,
+    episodesSuccess,
+    episodesFailure
+} from '../actions/episodesActions';
 import { combineReducers } from 'redux';
 import { handleAction, handleActions } from 'redux-actions';
 
-const films = handleAction(
-    searchSuccess,
+const episodes = handleAction(
+    episodesSuccess,
     (state, action) => action.payload,
     []
 );
 
 const error = handleAction(
-    searchFailure,
+    episodesFailure,
     (state, action) => action.error,
     null
 );
 
 const isFetching = handleActions(
     {
-        [searchRequest]: () => true,
-        [searchSuccess]: () => false,
-        [searchFailure]: () => false
+        [episodesRequest]: () => true,
+        [episodesSuccess]: () => false,
+        [episodesFailure]: () => false
     },
     false
 );
 
 const isFetched = handleActions(
     {
-        [searchRequest]: () => false,
-        [searchSuccess]: () => true,
-        [searchFailure]: () => true
+        [episodesRequest]: () => false,
+        [episodesSuccess]: () => true,
+        [episodesFailure]: () => true
     },
     false
 );
 
 export default combineReducers({
-    films,
+    episodes,
     error,
     isFetching,
     isFetched
 });
-
 
 

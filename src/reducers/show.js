@@ -43,8 +43,5 @@ export default combineReducers({
     isFetched
 });
 
-export const getShows = state => state.show;
-export const getError = state => state.error;
-export const getIsFetching = state => state.isFetching;
-export const getIsFetched = state => state.isFetched;
+
 
