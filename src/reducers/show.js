@@ -6,7 +6,7 @@ import {
 import { combineReducers } from 'redux';
 import { handleAction, handleActions } from 'redux-actions';
 
-const shows = handleAction(
+const show = handleAction(
     showSuccess,
     (state, action) => action.payload,
     []
@@ -37,13 +37,13 @@ const isFetched = handleActions(
 );
 
 export default combineReducers({
-    shows,
+    show,
     error,
     isFetching,
     isFetched
 });
 
-export const getShows = state => state.shows;
+export const getShows = state => state.show;
 export const getError = state => state.error;
 export const getIsFetching = state => state.isFetching;
 export const getIsFetched = state => state.isFetched;
