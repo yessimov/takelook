@@ -4,12 +4,12 @@ export const search = query =>
         mode: 'cors'
     })
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => data);
 
 export const show = id =>
-    fetch(`http://api.tvmaze.com/shows/${id}?embed=cast`, {
+    fetch(`http://api.tvmaze.com/shows/${id}/episodes`, {
         method: "GET",
         mode: 'cors'
     })
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => data);
