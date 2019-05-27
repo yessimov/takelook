@@ -1,28 +1,37 @@
 import React from 'react'
 
 const Episodes = ({ isFetching, episodes }) => (
-    <div>
+    <div className="episodes">
         {
             isFetching ?
-            <p>Загрузка...</p>
+            ''
             :
-            <ul>
+            <table>
+                <thead>
+                <tr>
+                    <th style={{"textAlign": "left"}}>Episode Name</th>
+                    <th>Airdate</th>
+                    <th>Trailer</th>
+                </tr>
+                </thead>
+                <tbody>
                 {
                     episodes.map((episode, i) => (
-                        <li key={i}>
-                            <span>
-                                {`${episode.season}x${episode.number}`}
-                            </span>
-                            <span>
-                                {episode.name}
-                            </span>
-                            <span>
+                        <tr key={i}>
+                            <td>
+                                {`${episode.season}x${episode.number}: ${episode.name}`}
+                            </td>
+                            <td style={{"textAlign": "center"}}>
                                 {episode.airdate}
-                            </span>
-                        </li>
+                            </td>
+                            <td>
+                                {}
+                            </td>
+                        </tr>
                     ))
                 }
-            </ul>
+                </tbody>
+            </table>
 
     }
     </div>

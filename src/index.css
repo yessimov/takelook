@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, p, a, table, input {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input {outline:none;}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shows {
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px; 
+}
+
+.shows-item {
+  display: flex;
+  padding: 10px 0 10px 10px;
+  width: 400px;
+}
+
+.shows-item:hover {
+  background: gray;
+  opacity: 0.8;
+}
+
+.shows-item-text {
+  padding-left: 10px;
+  width: 100%;
+}
+
+.shows-item-text {
+  color: Green;
+  font-weight: bold;
+} 
+
+.genres {
+  background: #ebebeb;
+  padding: 10px 0 10px 10px;
+}
+
+.show-block {
+  display: flex;
+}
+
+.show-block-text {
+  margin-left: 20px;
+}
+
+.episodes {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+}
+th {
+  background-color: #eee;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #eee;
+}
+td {
+  padding: 10px;
+}
+
+.search {
+  width: 50%;
+}
+
+input {
+  border: 1px solid black;
+  height: 50px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+input[type=text] {
+  width: 80%;
+  border-radius: 50px 0 0 50px;
+}
+
+input[type=text]:active {
+  
+}
+input[type=submit] {
+  width: 20%;
+  border-radius: 0 50px 50px 0;
+  margin-left: -1px;
+}

@@ -8,22 +8,32 @@ import Episodes from './Episodes'
 class Show extends Component {
 
     componentDidMount() {
-        this.props.showRequest(82)
-        this.props.episodesRequest(82)
+        this.props.showRequest(this.props.match.params.id)
+        this.props.episodesRequest(this.props.match.params.id)
     }
 
     render() {
-        const { show, episodes, isShowFetching, isEpisodesFetching } = this.props
+        const { show, episodes, isShowFetching, isEpisodesFetching, isShowFetched } = this.props
+        console.log(isShowFetched)
         return (
-            <div>
+            <div className="show">
                 {isShowFetching ?
                     <p>Загрузка</p>
                     :
-                    <ul>
-                        {show.name}
-                    </ul>
+                    <article>
+                        <h1>{show.name}</h1>
+                        <div className="show-block">
+                            {isShowFetched ? <img src={show.image.medium} alt={show.name} /> : ''}
+                            <div
+                                className="show-block-text"
+                                dangerouslySetInnerHTML={{
+                                    __html: show.summary
+                                }}
+                            />
+                        </div>
+                    </article>
                 }
-                <Episodes 
+                <Episodes
                     episodes={episodes}
                     isFetching={isEpisodesFetching}
                 />
@@ -36,7 +46,8 @@ const mapStateToProps = state => ({
     show: state.show.show,
     episodes: state.episodes.episodes,
     isShowFetching: state.show.isFetching,
-    isEpisodesFetching: state.episodes.isFetching
+    isEpisodesFetching: state.episodes.isFetching,
+    isShowFetched: state.show.isFetched
 })
 
 const mapDispatchToProps = {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchRequest } from '../actions/searchActions';
+import { Link, withRouter } from 'react-router-dom';
 
 class Search extends Component {
     constructor(props) {
@@ -18,15 +19,15 @@ class Search extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        this.props.searchRequest(this.state.inputValue)
         this.setState({
             inputValue: ''
         })
+        this.props.history.push(`/shows/${this.state.inputValue}`)
     }
     render() {
         const { inputValue } = this.state;
         return (
-            <div>
+            <div className="search">
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" value={ inputValue } onChange={this.handleChange} placeholder="Search Shows"/>
                     <input type="submit" value="Search" />
@@ -44,4 +45,4 @@ const mapDispatchToProps = {
     searchRequest
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search))
