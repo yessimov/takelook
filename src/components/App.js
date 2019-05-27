@@ -11,7 +11,7 @@ class App extends Component {
             <div>
                 <Search />
                 <Shows />
-                <Show />
+                {/* <Show /> */}
             </div>
         )
     }
